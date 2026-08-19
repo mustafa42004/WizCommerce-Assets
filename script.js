@@ -68,7 +68,7 @@ jQuery(function ($) {
         const $buttons = $grid.find('.tab-button');
         const $contents = $grid.find('.tab-content-cont > .tab-content');
 
-        let activeIndex = $buttons.filter('.active').first().index();
+        let activeIndex = $buttons.index($buttons.filter('.active'));
 
         if (activeIndex === -1) {
             activeIndex = 0;
@@ -92,10 +92,10 @@ jQuery(function ($) {
 jQuery(function ($) {
 
     const gridStickyTop = 201;
-    const buttonStickyTop = 119;
+    const buttonStickyTop = 118;
 
     const $grids = $('.tab-grid');
-    const $stickyButtons = $('.tab-vis-button-cont .btn');
+    const $stickyButtons = $('.tab-vis-button-cont .tab-vis-button');
 
     function updateStickyElements() {
 
