@@ -92,7 +92,7 @@ jQuery(function ($) {
 jQuery(function ($) {
 
     const gridStickyTop = 201;
-    const buttonStickyTop = 118;
+    const buttonStickyTop = 119;
 
     const $grids = $('.tab-grid');
     const $stickyButtons = $('.tab-vis-button-cont .tab-vis-button');
