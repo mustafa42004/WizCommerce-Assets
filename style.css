@@ -1,3 +1,22 @@
+/* mega menu */
+.has-dropdown .nav-link:before {
+    content: "";
+    width: calc(100% + 44px);
+    height: 30px;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: -13px;
+    top: 100%;
+    pointer-events: none;
+}
+.nav-item:hover .mega-menu, .nav-item:hover .mega-overlay, .has-dropdown .nav-link:before {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 /* tab section */
 .tab-button.active .tab-button-before,
 .tab-button:hover .tab-button-before {
