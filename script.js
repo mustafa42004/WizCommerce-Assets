@@ -1,9 +1,9 @@
 /* MOBILE SIDEBAR */
 jQuery(function ($) {
-    const $sidebar        = $('#mobileSidebar');
-    const $overlay        = $('#mobileSidebarOverlay');
-    const $toggle         = $('#mobileMenuToggle');
-    const $toggleBtns     = $sidebar.find('.mobile-nav-toggle');
+    const $sidebar = $('#mobileSidebar');
+    const $overlay = $('#mobileSidebarOverlay');
+    const $toggle = $('#mobileMenuToggle');
+    const $toggleBtns = $sidebar.find('.mobile-nav-toggle');
 
     function openSidebar() {
         $sidebar.addClass('active');
@@ -40,17 +40,17 @@ jQuery(function ($) {
 
     // Accordion sub-menus
     $toggleBtns.on('click', function () {
-        const $btn      = $(this);
-        const $subMenu  = $btn.siblings('.mobile-sub-menu');
-        const isOpen    = $btn.attr('aria-expanded') === 'true';
+        const $btn = $(this);
+        const $subMenu = $btn.siblings('.mobile-sub-menu');
+        const isOpen = $btn.attr('aria-expanded') === 'true';
 
-        
+
         $toggleBtns.not($btn).attr('aria-expanded', 'false');
         $sidebar.find('.mobile-sub-menu.open').each(function () {
             $(this).css('max-height', '0').removeClass('open');
         });
 
-        
+
         if (!isOpen) {
             const scrollHeight = $subMenu[0].scrollHeight;
             $subMenu.css('max-height', scrollHeight + 'px').addClass('open');
@@ -92,7 +92,7 @@ jQuery(function ($) {
 jQuery(function ($) {
 
     const gridStickyTop = 201;
-    const buttonStickyTop = 119;
+    const buttonStickyTop = 118;
 
     const $grids = $('.tab-grid');
     const $stickyButtons = $('.tab-vis-button-cont .tab-vis-button');
@@ -113,13 +113,13 @@ jQuery(function ($) {
 
         // Active grid
         $grids.removeClass('active')
-              .eq(activeIndex)
-              .addClass('active');
+            .eq(activeIndex)
+            .addClass('active');
 
         // Active sticky button
         $stickyButtons.removeClass('active')
-                      .eq(activeIndex)
-                      .addClass('active');
+            .eq(activeIndex)
+            .addClass('active');
 
         // Sticky button container visibility
         $('.tab-vis-buttons').each(function () {
@@ -158,7 +158,7 @@ jQuery(function ($) {
         });
 
         $items.find('.industry-header').on('click', function (e) {
-            
+
             if ($(e.target).closest('.logo-box').length) {
                 return;
             }
@@ -238,7 +238,7 @@ jQuery(function ($) {
                 layoutMode = targetMode;
 
                 if (isMobile) {
-                   
+
                     $buttons.each(function (index) {
                         const $btn = $(this);
                         const $content = $contents.eq(index);
@@ -247,7 +247,7 @@ jQuery(function ($) {
                     });
                     $desktopBtnsCont.closest('.border-y').hide();
 
-                   
+
                     $contents.each(function () {
                         if ($(this).hasClass('active')) {
                             $(this).show();
@@ -256,7 +256,7 @@ jQuery(function ($) {
                         }
                     });
                 } else {
-                    
+
                     $desktopBtnsCont.closest('.border-y').show();
                     $buttons.each(function () {
                         $desktopBtnsCont.append($(this));

@@ -1,0 +1,4 @@
+/* tab section */
+.tab-button.active .tab-button-before, .tab-button:hover .tab-button-before  {
+    opacity: 1;
+}
