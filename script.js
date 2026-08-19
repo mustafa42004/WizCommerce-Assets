@@ -140,50 +140,6 @@ jQuery(function ($) {
 
 });
 
-/* Industry Accordion */
-jQuery(function ($) {
-    $('.industry-accordion').each(function () {
-        const $accordion = $(this);
-        const $items = $accordion.find('.industry-item');
-
-        $items.each(function (index) {
-            const $item = $(this);
-            const $drawer = $item.find('.industry-drawer');
-            if ($item.hasClass('active')) {
-                $drawer.show();
-                $('.industry-images-col img').removeClass('active').eq(index).addClass('active');
-            } else {
-                $drawer.hide();
-            }
-        });
-
-        $items.find('.industry-header').on('click', function (e) {
-
-            if ($(e.target).closest('.logo-box').length) {
-                return;
-            }
-
-            const $item = $(this).closest('.industry-item');
-            const $drawer = $item.find('.industry-drawer');
-
-            if ($item.hasClass('active')) {
-                $item.removeClass('active');
-                $drawer.slideUp();
-            } else {
-                $items.filter('.active').each(function () {
-                    $(this).removeClass('active').find('.industry-drawer').slideUp();
-                });
-                $item.addClass('active');
-                $drawer.slideDown();
-
-                // Change active image
-                const index = $items.index($item);
-                $('.industry-images-col img').removeClass('active').eq(index).addClass('active');
-            }
-        });
-    });
-});
-
 /* FAQ Accordion */
 jQuery(function ($) {
     $('.faq-accordion').each(function () {
@@ -213,104 +169,6 @@ jQuery(function ($) {
                 });
                 $item.addClass('active');
                 $answer.slideDown();
-            }
-        });
-    });
-});
-
-
-/* AI Tab Switcher & Accordion */
-jQuery(function ($) {
-    $('.ai-co-workers-sec').each(function () {
-        const $section = $(this);
-        const $buttons = $('.ai-tab-btn');
-        const $contents = $('.ai-tab-content');
-        const $desktopBtnsCont = $('.ai-tab-btns-container');
-        const $contentsCont = $('.ai-tab-content-cont');
-
-        let layoutMode = null;
-
-        function initLayout() {
-            const isMobile = window.innerWidth <= 767;
-            const targetMode = isMobile ? 'mobile' : 'desktop';
-
-            if (layoutMode !== targetMode) {
-                layoutMode = targetMode;
-
-                if (isMobile) {
-
-                    $buttons.each(function (index) {
-                        const $btn = $(this);
-                        const $content = $contents.eq(index);
-                        $contentsCont.append($btn);
-                        $contentsCont.append($content);
-                    });
-                    $desktopBtnsCont.closest('.border-y').hide();
-
-
-                    $contents.each(function () {
-                        if ($(this).hasClass('active')) {
-                            $(this).show();
-                        } else {
-                            $(this).hide();
-                        }
-                    });
-                } else {
-
-                    $desktopBtnsCont.closest('.border-y').show();
-                    $buttons.each(function () {
-                        $desktopBtnsCont.append($(this));
-                    });
-                    $contents.each(function () {
-                        $contentsCont.append($(this));
-                        if ($(this).hasClass('active')) {
-                            $(this).show();
-                        } else {
-                            $(this).hide();
-                        }
-                    });
-                }
-            }
-        }
-
-        let activeIndex = $buttons.filter('.active').first().index();
-        if (activeIndex === -1) {
-            activeIndex = 0;
-            $buttons.removeClass('active').eq(0).addClass('active');
-            $contents.removeClass('active').eq(0).addClass('active');
-        }
-
-        initLayout();
-        $(window).on('resize', initLayout);
-
-        $buttons.on('click', function (e) {
-            e.preventDefault();
-            const index = $buttons.index(this);
-            const isMobile = window.innerWidth <= 767;
-
-            if (isMobile) {
-                if ($(this).hasClass('active')) {
-                    // Toggle close
-                    $(this).removeClass('active');
-                    $contents.eq(index).removeClass('active').slideUp();
-                } else {
-                    // Close others
-                    $buttons.removeClass('active');
-                    $contents.removeClass('active').slideUp();
-
-                    // Open selected
-                    $(this).addClass('active');
-                    $contents.eq(index).addClass('active').slideDown();
-                }
-            } else {
-                // Desktop tabs click
-                if (!$(this).hasClass('active')) {
-                    $buttons.removeClass('active');
-                    $(this).addClass('active');
-
-                    $contents.removeClass('active').hide();
-                    $contents.eq(index).addClass('active').show();
-                }
             }
         });
     });
@@ -349,18 +207,12 @@ jQuery(function ($) {
 
     function playProgressBar($tab) {
         const $bar = $tab.find('.tab-progress-bar');
-        $bar.removeClass('running').css('width', '0%');
-        $bar[0].offsetWidth; // force reflow
-
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                $bar.addClass('running');
-            });
-        });
+        // Stop any running animation, reset to 0%, then animate to 100%
+        $bar.stop(true, true).css('width', '0%').animate({ width: '100%' }, DURATION, 'linear');
     }
 
     function resetAllProgressBars() {
-        $tabs.find('.tab-progress-bar').removeClass('running').css('width', '0%');
+        $tabs.find('.tab-progress-bar').stop(true, true).css('width', '0%');
     }
 
     function switchTab(index) {
@@ -439,7 +291,7 @@ jQuery(function ($) {
     resetAutoplay();
 });
 
-/* FOOTER MENU ACCORDION (Mobile 767px and below) */
+/* Footer menu accordion (Mobile 767px and below) */
 jQuery(function ($) {
     $('.footer-acc-head').on('click', function () {
         if (window.innerWidth > 767) return;
