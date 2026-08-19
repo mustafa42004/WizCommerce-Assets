@@ -4,6 +4,11 @@
     opacity: 1;
 }
 
+/* faq accordion */
+.faq-item.active .faq-arrow svg {
+    transform: rotate(180deg);
+}
+
 /* footer menu */
 .footer-acc-item.active .footer-acc-body {
     padding-bottom: 16px;
