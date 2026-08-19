@@ -5,7 +5,7 @@
 }
 
 /* faq accordion */
-.faq-item.active .faq-arrow svg {
+.faq-item.active .faq-arrow {
     transform: rotate(180deg);
 }
 
