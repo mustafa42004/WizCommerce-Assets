@@ -1,4 +1,18 @@
 /* tab section */
-.tab-button.active .tab-button-before, .tab-button:hover .tab-button-before  {
+.tab-button.active .tab-button-before,
+.tab-button:hover .tab-button-before {
     opacity: 1;
+}
+
+/* footer menu */
+.footer-acc-item.active .footer-acc-body {
+    padding-bottom: 16px;
+}
+
+.footer-acc-item.active .footer-acc-head p {
+    opacity: 1 !important;
+}
+
+.footer-acc-body .foo-list-item:first-child {
+    margin-top: 0;
 }

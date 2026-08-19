@@ -439,9 +439,7 @@ jQuery(function ($) {
     resetAutoplay();
 });
 
-/* =============================================
-   FOOTER MENU ACCORDION (Mobile 767px and below)
-   ============================================= */
+/* FOOTER MENU ACCORDION (Mobile 767px and below) */
 jQuery(function ($) {
     $('.footer-acc-head').on('click', function () {
         if (window.innerWidth > 767) return;
