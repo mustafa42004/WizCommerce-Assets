@@ -23,6 +23,11 @@
     opacity: 1;
 }
 
+/* testimonial */
+.testimonial-read-more:hover .test-read-more-arr {
+    transform: rotate(45deg)
+}
+
 /* faq accordion */
 .faq-item.active .faq-arrow {
     transform: rotate(180deg);
