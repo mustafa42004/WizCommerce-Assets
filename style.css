@@ -12,8 +12,11 @@
     top: 100%;
     pointer-events: none;
 }
-.nav-item:hover .mega-menu, .nav-item:hover .mega-overlay, .has-dropdown .nav-link:before {
+.nav-item:hover .mega-menu {
     opacity: 1;
+    pointer-events: auto;
+}
+.nav-item:hover .mega-overlay, .nav-item.has-dropdown:hover .nav-link:before {
     pointer-events: auto;
 }
 
