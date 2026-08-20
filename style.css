@@ -58,10 +58,12 @@
     padding-bottom: 16px;
 }
 
-.footer-acc-item.active .footer-acc-head p {
+.footer-acc-item.active .footer-acc-head {
     opacity: 1 !important;
 }
-
+.footer-acc-item.active .footer-chev {
+    transform: rotate(180deg);
+}
 .footer-acc-body .foo-list-item:first-child {
     margin-top: 0;
 }
