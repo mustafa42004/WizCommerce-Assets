@@ -1,20 +1,17 @@
 /* MOBILE SIDEBAR */
 jQuery(function ($) {
     const $sidebar = $('#mobileSidebar');
-    const $overlay = $('#mobileSidebarOverlay');
     const $toggle = $('#mobileMenuToggle');
     const $toggleBtns = $sidebar.find('.mobile-nav-toggle');
 
     function openSidebar() {
         $sidebar.addClass('active');
-        $overlay.addClass('active');
         $('body').addClass('sidebar-open');
         $toggle.attr('aria-expanded', 'true');
     }
 
     function closeSidebar() {
         $sidebar.removeClass('active');
-        $overlay.removeClass('active');
         $('body').removeClass('sidebar-open');
         $toggle.attr('aria-expanded', 'false');
     }
@@ -30,16 +27,13 @@ jQuery(function ($) {
     // Toggle on hamburger click
     $toggle.on('click', toggleSidebar);
 
-    // Close on overlay click
-    $overlay.on('click', closeSidebar);
-
     // Close on ESC key
     $(document).on('keydown', function (e) {
         if (e.key === 'Escape') closeSidebar();
     });
 
     // Accordion sub-menus
-    $toggleBtns.on('click', function () {
+    $toggleBtns.on('click', function (e) {
         const $btn = $(this);
         const $subMenu = $btn.siblings('.mobile-sub-menu');
         const isOpen = $btn.attr('aria-expanded') === 'true';
