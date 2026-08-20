@@ -31,8 +31,10 @@
 .mobile-nav-toggle[aria-expanded="true"] .mobile-chev {
     transform: rotate(180deg);
 }
-.mobile-sub-item:nth-child(even) {
-    margin-left: -1px;
+@media (max-width:991px) and (min-width:768px) {
+    .mobile-sub-item:nth-child(even) {
+        margin-left: -1px;
+    }
 }
 
 /* tab section */
