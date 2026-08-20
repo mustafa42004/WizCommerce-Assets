@@ -23,6 +23,12 @@
     pointer-events: auto;
 }
 
+/* mobile sidebar */
+.mobile-sidebar.active .mobile-nav-list {
+    opacity: 1;
+    transform: translatey(0px);
+}
+
 /* tab section */
 .tab-button.active .tab-button-before,
 .tab-button:hover .tab-button-before {
